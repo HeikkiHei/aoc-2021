@@ -5,7 +5,7 @@ namespace day2
 {
   class Program
   {
-    static void Main(string[] args)
+    static void Main()
     {
       string[] lines = File.ReadAllLines("data.txt");
       Part1(lines);
@@ -18,17 +18,17 @@ namespace day2
       foreach (string line in lines)
       {
         string[] parts = line.Split(" ");
-        string command = parts[0];
+        char com = parts[0][0];
         int value = Convert.ToInt32(parts[1]);
-        switch (command)
+        switch (com)
         {
-          case "down":
+          case 's':
             dep += value;
             break;
-          case "up":
+          case 'u':
             dep -= value;
             break;
-          case "forward":
+          case 'f':
             hor += value;
             break;
         }
@@ -44,16 +44,17 @@ namespace day2
       foreach (string line in lines)
       {
         string[] parts = line.Split(" ");
+        string com = parts[0];
         int value = Convert.ToInt32(parts[1]);
-        if (parts[0] == "down")
+        if (com == "down")
         {
           aim += value;
         }
-        if (parts[0] == "up")
+        if (com == "up")
         {
           aim -= value;
         }
-        if (parts[0] == "forward")
+        if (com == "forward")
         {
           hor += value;
           dep += value * aim;
