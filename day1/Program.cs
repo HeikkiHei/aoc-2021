@@ -31,7 +31,6 @@ namespace day1
             int increase = 0;
             for (int i = 0; i < ints.Length - 3; i++)
             {
-                // if (ints[i] + ints[i + 1] + ints[i + 2] < ints[i + 1] + ints[i + 2] + ints[i + 3])
                 if (ints[i] < ints[i + 3])
                 {
                     increase++;
