@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace day2
+namespace day02
 {
   class Program
   {
