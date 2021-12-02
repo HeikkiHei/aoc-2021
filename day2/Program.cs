@@ -9,6 +9,7 @@ namespace day2
     {
       string[] lines = File.ReadAllLines("data.txt");
       Part1(lines);
+      Part2(lines);
     }
 
     static void Part1(string[] lines)
@@ -22,7 +23,7 @@ namespace day2
         int value = Convert.ToInt32(parts[1]);
         switch (com)
         {
-          case 's':
+          case 'd':
             dep += value;
             break;
           case 'u':
@@ -33,7 +34,7 @@ namespace day2
             break;
         }
       }
-      Console.WriteLine(dep * hor);
+      Console.WriteLine($"Part 1 {dep*hor}");
     }
 
     static void Part2(string[] lines)
@@ -60,7 +61,7 @@ namespace day2
           dep += value * aim;
         }
       }
-      Console.WriteLine(dep * hor);
+      Console.WriteLine($"Part 2 {dep*hor}");
     }
   }
 }

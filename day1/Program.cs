@@ -9,6 +9,7 @@ namespace day1
         {
             string[] lines = File.ReadAllLines("data.txt");
             int[] ints = Array.ConvertAll(lines, int.Parse);
+            Part1(ints);
             Part2(ints);
 
 
@@ -23,7 +24,7 @@ namespace day1
                     increase++;
                 }
             }
-            Console.WriteLine(increase);
+            Console.WriteLine($"Part 1 {increase}");
         }
 
         static void Part2(int[] ints)
@@ -36,7 +37,7 @@ namespace day1
                     increase++;
                 }
             }
-            Console.WriteLine(increase);
+            Console.WriteLine($"Part 2 {increase}");
         }
     }
 }
