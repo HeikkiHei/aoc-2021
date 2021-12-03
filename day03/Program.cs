@@ -8,12 +8,9 @@ namespace day03
     {
         static void Main(string[] args)
         {
-
-
             string[] lines = File.ReadAllLines("data.txt");
             Part1(lines);
             Part2(lines);
-
         }
 
         static void Part1(string[] lines)
@@ -80,7 +77,7 @@ namespace day03
                     {
                         co2List.RemoveAll(x => x[i] == '1');
                     }
-                    else if (zeroCount > oneCount)
+                    else
                     {
                         co2List.RemoveAll(x => x[i] == '0');
                     }
@@ -111,7 +108,7 @@ namespace day03
                     {
                         oxygenList.RemoveAll(x => x[i] == '0');
                     }
-                    else if (zeroCount > oneCount)
+                    else
                     {
                         oxygenList.RemoveAll(x => x[i] == '1');
                     }
