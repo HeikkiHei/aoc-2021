@@ -82,11 +82,8 @@ namespace day03
                         co2List.RemoveAll(x => x[i] == '0');
                     }
                 }
-            }
-            for (int i = 0; i < lines[1].Length; i++)
-            {
-                int zeroCount = 0;
-                int oneCount = 0;
+                zeroCount = 0;
+                oneCount = 0;
                 foreach (string line in oxygenList)
                 {
                     if (line[i] == '0')
