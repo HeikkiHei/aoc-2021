@@ -12,12 +12,15 @@ namespace day04
 
             string[] draw = File.ReadAllLines("data.txt")[0].Split(",");
             string[] bingoCards = File.ReadAllText("data.txt").Split(new string[] { Environment.NewLine + Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-            List<BingoCard> cards = new List<BingoCard>();
+            List<BingoCard> cards1 = new List<BingoCard>();
+            List<BingoCard> cards2 = new List<BingoCard>();
             for (int i = 1; i < bingoCards.Length; i++)
             {
-                cards.Add(new BingoCard(bingoCards[i]));
+                cards1.Add(new BingoCard(bingoCards[i]));
+                cards2.Add(new BingoCard(bingoCards[i]));
             }
-            Part2(draw, cards);
+            Part1(draw, cards1);
+            Part2(draw, cards2);
         }
 
 
@@ -31,8 +34,8 @@ namespace day04
                     card.CheckNumber(num);
                     if (card.Winning(num))
                     {
-                        Console.Write("Part 1 - ");
-                        card.CalculateTotal(num);
+                        Console.WriteLine($"Part 1 - {card.CalculateTotal(num)}");
+                        
                         return;
                     }
                 }
@@ -41,6 +44,7 @@ namespace day04
 
         static void Part2(string[] draw, List<BingoCard> cards)
         {
+            List<int> winningSums = new List<int>();
             foreach (string winner in draw)
             {
                 int num = Convert.ToInt32(winner);
@@ -53,12 +57,12 @@ namespace day04
                 {
                     if (cards[i].Winning(num))
                     {
-                        Console.Write("Part 2 - ");
-                        cards[i].CalculateTotal(num);
+                        winningSums.Add(cards[i].CalculateTotal(num));
                         cards.Remove(cards[i]);
                     }
                 }
             }
+            Console.WriteLine($"Part 2 - {winningSums[winningSums.Count -1]}");
         }
     }
 
@@ -83,7 +87,7 @@ namespace day04
             }
         }
 
-        public bool CheckNumber(int number)
+        public void CheckNumber(int number)
         {
             for (int i = 0; i < this.card.GetLength(0); i++)
             {
@@ -93,11 +97,9 @@ namespace day04
                     if (this.card[i, j] == number)
                     {
                         this.card[i, j] = -1;
-                        return true;
                     }
                 }
             }
-            return false;
         }
         public bool Winning(int number)
         {
@@ -117,7 +119,7 @@ namespace day04
             }
             return false;
         }
-        public void CalculateTotal(int num)
+        public int CalculateTotal(int num)
         {
             int sum = 0;
             for (int i = 0; i < this.card.GetLength(0); i++)
@@ -131,7 +133,7 @@ namespace day04
                     }
                 }
             }
-            Console.WriteLine(sum * num);
+            return sum * num;
         }
     }
 }
