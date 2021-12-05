@@ -11,7 +11,7 @@ namespace day05
 
         public void Add(Line line)
         {
-
+            // VERTICAL
             if (line.y1 == line.y2)
             {
                 int smaller = line.x1;
@@ -26,6 +26,7 @@ namespace day05
                     this.map[line.y1, i]++;
                 }
             }
+            // HORISONTAL
             else if (line.x1 == line.x2)
             {
                 int smaller = line.y1;
@@ -43,6 +44,7 @@ namespace day05
             }
             else
             {
+                // INCREASE x, DECREASE y
                 if (line.x1 < line.x2 && line.y1 > line.y2)
                 {
 
@@ -55,6 +57,7 @@ namespace day05
                         }
                     }
                 }
+                // DECREASE x, DECREASE y
                 else if (line.x1 > line.x2 && line.y1 > line.y2)
                 {
                     for (int i = line.x1; i >= line.x2;)
@@ -66,6 +69,7 @@ namespace day05
                         }
                     }
                 }
+                // DECREASE x, INCREASE y
                 else if (line.x1 > line.x2 && line.y1 < line.y2)
                 {
                     for (int i = line.x1; i >= line.x2;)
@@ -77,6 +81,7 @@ namespace day05
                         }
                     }
                 }
+                // INCREASE x, INCREASE y
                 else
                 {
                     for (int i = line.x1; i <= line.x2;)
