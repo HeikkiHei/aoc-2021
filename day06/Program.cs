@@ -49,22 +49,15 @@ namespace day06
             for (int k = 0; k < 256; k++)
             {
                 long oldZero = fishesInArray[0];
-                long oldOne = fishesInArray[1];
-                long oldTwo = fishesInArray[2];
-                long oldThree = fishesInArray[3];
-                long oldFour = fishesInArray[4];
-                long oldFive = fishesInArray[5];
-                long oldSix = fishesInArray[6];
-                long oldSeven = fishesInArray[7];
                 long oldEight = fishesInArray[8];
-                fishesInArray[8] = oldZero;
-                fishesInArray[0] = oldOne;
-                fishesInArray[1] = oldTwo;
-                fishesInArray[2] = oldThree;
-                fishesInArray[3] = oldFour;
-                fishesInArray[4] = oldFive;
-                fishesInArray[5] = oldSix;
-                fishesInArray[6] = oldSeven + oldZero;
+                fishesInArray[8] = fishesInArray[0];
+                fishesInArray[0] = fishesInArray[1];
+                fishesInArray[1] = fishesInArray[2];
+                fishesInArray[2] = fishesInArray[3];
+                fishesInArray[3] = fishesInArray[4];
+                fishesInArray[4] = fishesInArray[5];
+                fishesInArray[5] = fishesInArray[6];
+                fishesInArray[6] = fishesInArray[7] + oldZero;
                 fishesInArray[7] = oldEight;
 
             }
