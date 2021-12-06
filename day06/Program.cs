@@ -48,7 +48,6 @@ namespace day06
             }
             for (int k = 0; k < 256; k++)
             {
-                long oldZero = fishesInArray[0];
                 long oldEight = fishesInArray[8];
                 fishesInArray[8] = fishesInArray[0];
                 fishesInArray[0] = fishesInArray[1];
@@ -57,7 +56,8 @@ namespace day06
                 fishesInArray[3] = fishesInArray[4];
                 fishesInArray[4] = fishesInArray[5];
                 fishesInArray[5] = fishesInArray[6];
-                fishesInArray[6] = fishesInArray[7] + oldZero;
+                // seven and old value of 0, now in 8
+                fishesInArray[6] = fishesInArray[7] + fishesInArray[8];
                 fishesInArray[7] = oldEight;
 
             }
