@@ -10,7 +10,7 @@ namespace day07
     {
         static void Main(string[] args)
         {
-            string[] input = File.ReadAllText("data.txt").Split(",").Select(int.Parse).ToArray();
+            int[] input = File.ReadAllText("data.txt").Split(",").Select(int.Parse).ToArray();
             Part1(input);
             Part2(input);
 
@@ -27,19 +27,17 @@ namespace day07
         static void Part1(int[] input)
         {
             double median = Median(input);
-            Console.WriteLine(median);
             int sum = 0;
             foreach (int squid in input)
             {
                 sum += Math.Abs(squid - (int)median);
             }
-            Console.WriteLine(sum);
+            Console.WriteLine("Part 1: " + sum);
         }
 
         static void Part2(int[] input)
         {
             int average = Convert.ToInt32(input.Average());
-            Console.WriteLine(average);
             int sum = 0;
             foreach (int squid in input)
             {
@@ -47,7 +45,7 @@ namespace day07
                 int result = (int)(0.5 * n * (n + 1));
                 sum += result;
             }
-            Console.WriteLine(sum);
+            Console.WriteLine("Part 2: " + sum);
         }
 
 
