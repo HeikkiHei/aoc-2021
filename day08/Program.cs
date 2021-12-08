@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 
 namespace day08
 {
@@ -6,7 +8,27 @@ namespace day08
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string[] lines = File.ReadAllLines("data.txt");
+            Part1(lines);
+
+        }
+
+        static void Part1(string[] lines)
+        {
+            int count = 0;
+            foreach (string line in lines)
+            {
+                string latter = line.Trim().Split("|")[1];
+                foreach (string part in latter.Split(" "))
+                {
+                    if (part.Length == 2 || part.Length == 3 || part.Length == 4 || part.Length == 7)
+                    {
+                        count++;
+                    }
+                }
+
+            }
+            Console.WriteLine("Part 1 " + count);
         }
     }
 }
