@@ -18,7 +18,7 @@ namespace day09
         }
       }
       // PrintMap(map);
-      CheckNeighbours(map);
+      Console.WriteLine("Part 1: " + CheckNeighbours(map));
     }
 
     static void PrintMap(int[,] map)
@@ -33,7 +33,7 @@ namespace day09
       }
     }
 
-    static void CheckNeighbours(int[,] map)
+    static int CheckNeighbours(int[,] map)
     {
       int sum = 0;
       int right = 999;
@@ -76,7 +76,7 @@ namespace day09
         }
 
       }
-      Console.WriteLine(sum);
+      return sum;
     }
   }
 }
