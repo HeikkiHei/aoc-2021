@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
-using MathNet.Numerics.Statistics;
 
 namespace day07
 {
