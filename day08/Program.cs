@@ -8,9 +8,9 @@ namespace day08
     {
         static void Main(string[] args)
         {
-            string[] lines = File.ReadAllLines("data.txt");
+            string[] lines = File.ReadAllLines("sample.txt");
             Part1(lines);
-
+            Part2(lines);
         }
 
         static void Part1(string[] lines)
@@ -26,9 +26,23 @@ namespace day08
                         count++;
                     }
                 }
-
             }
             Console.WriteLine("Part 1 " + count);
+        }
+
+
+        static void Part2(string[] lines)
+        {
+            int count = 0;
+            foreach (string line in lines)
+            {
+                string[] parts = line.Trim().Split("|");
+                foreach (string part in parts)
+                {
+                    Console.WriteLine(part);
+                }
+            }
+            Console.WriteLine("Part 2 " + count);
         }
     }
 }
